@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Fetchr
+Exec=fetchr
+Icon=dev.headlessflower.Fetchr
+Terminal=false
+Type=Application
+Categories=AudioVideo;GTK;
+StartupNotify=true

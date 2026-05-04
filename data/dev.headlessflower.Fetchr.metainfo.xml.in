@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>dev.headlessflower.Fetchr</id>
+  <name>Fetchr</name>
+  <summary>Native GNOME downloader app</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <description>
+    <p>
+      A native GNOME rewrite of your downloader app using GTK 4 and libadwaita.
+    </p>
+  </description>
+  <launchable type="desktop-id">dev.headlessflower.Fetchr.desktop</launchable>
+</component>

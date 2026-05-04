@@ -1,0 +1,35 @@
+app-id: dev.headlessflower.Fetchr
+runtime: org.gnome.Platform
+runtime-version: "48"
+sdk: org.gnome.Sdk
+command: fetchr
+
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --filesystem=xdg-download
+  - --filesystem=xdg-music
+  - --talk-name=org.freedesktop.portal.Desktop
+
+modules:
+  - name: yt-dlp
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 yt-dlp /app/bin/yt-dlp
+    sources:
+      - type: file
+        url: https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
+        sha256: 3bda0968a01cde70d26720653003b28553c71be14dcb2e5f4c24e9921fdad745
+  - name: fetchr
+    buildsystem: simple
+    build-commands:
+      - pip3 install --no-build-isolation --no-deps --prefix=/app .
+      - install -Dm644 data/dev.headlessflower.Fetchr.desktop.in /app/share/applications/dev.headlessflower.Fetchr.desktop
+      - install -Dm644 data/dev.headlessflower.Fetchr.metainfo.xml.in /app/share/metainfo/dev.headlessflower.Fetchr.metainfo.xml
+      - install -Dm644 data/icons/hicolor/scalable/apps/dev.headlessflower.Fetchr.svg /app/share/icons/hicolor/scalable/apps/dev.headlessflower.Fetchr.svg
+    sources:
+      - type: dir
+        path: ..
